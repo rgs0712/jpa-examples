@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Version;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -18,7 +19,7 @@ public class Client implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ID")
+    @Column(name="ID", nullable = false)
     private Long id;
 
     @Column(name="NAME")
@@ -38,5 +39,7 @@ public class Client implements Serializable {
     private GenderType gender;
 
     @Version
-    private Integer version;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="VERSION", nullable = false )
+    private Date version;
 }

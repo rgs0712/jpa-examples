@@ -17,15 +17,22 @@ public class ClientController {
     private ClientService clientService;
 
     @PostMapping
-    public ResponseEntity<Client> save(@RequestBody Client client){
+    public ResponseEntity<Client> save(@RequestBody Client client) {
         return new ResponseEntity<Client>(clientService.save(client), HttpStatus.CREATED);
     }
+
     @GetMapping
-    public ResponseEntity<List<Client>> findAll(){
+    public ResponseEntity<List<Client>> findAll() {
         return ResponseEntity.ok(clientService.findAll());
     }
+
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Client>> findById(@PathVariable Long id){
+    public ResponseEntity<Optional<Client>> findById(@PathVariable Long id) {
         return ResponseEntity.ok(clientService.findById(id));
+    }
+
+    @PutMapping
+    public ResponseEntity<Client> findById(@RequestBody Client client) {
+        return new ResponseEntity<Client>(clientService.save(client), HttpStatus.ACCEPTED);
     }
 }
