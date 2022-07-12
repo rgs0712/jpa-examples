@@ -39,7 +39,6 @@ public class Client implements Serializable {
     private GenderType gender;
 
     @Version
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="VERSION", nullable = false )
-    private Date version;
+    @Column(name="VERSION", columnDefinition = "integer DEFAULT 0", nullable = false)
+    private Long version=0L;
 }
