@@ -46,6 +46,6 @@ public class Client implements Serializable {
     private Long version=0L;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "client")
-    private List<Request> requests;
+    private List<Order> orders;
 
 }
